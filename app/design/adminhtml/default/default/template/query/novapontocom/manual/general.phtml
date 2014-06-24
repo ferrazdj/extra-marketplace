@@ -1,0 +1,92 @@
+<div class="content-header" style="height: 30px;"><h3>Manual de Usuário Extra.com</h3></div>
+<h1>
+	Introdução
+</h1>
+<p>
+	O módulo de integração com o Market Place do Extra.com tem como finalidade tornar possível a venda dos produtos da sua loja virtual na vitrine 
+	do Extra.com. Ele irá proporcionar o envio de produtos, o recebimento de pedidos e o acompanhamento de chamados por meio da interface de adminstração
+	do Magento.
+</p>
+<p>
+	No entanto, antes de utilizar a integração proporcionada pelo módulo, você deve configurar todos os parâmetros corretamente, evitando que ocorram
+	exceções e melhorando a qualidade dos dados enviados, o que irá proporcionar uma melhor experiência.
+</p>
+	O módulo possui ações síncronas e assíncronas, ou seja, há algumas funcionalidades que serão executadas de tempos em tempos pelo cron do Magento 
+	(certifique-se de que ele esteja funcionando corretamente).
+</p>
+<br /><hr><br /><br />
+<h1>
+	Configuração do Módulo
+</h1>
+<p>
+	As configurações são realizadas na área de configuração do Magento, acessando o menu Sistema -> Configurações -> Extra.com. Neste menu, encontraremos 
+	três seções:
+</p>
+<p>
+	<ul>
+		<li><b>- Geral</b></li>
+		<li><b>- Configurações de Cliente</b></li>
+		<li><b>- Configurações de Produto</b></li>
+	</ul>
+</p>
+<br />
+<h2>
+	Geral
+</h2>
+<p>
+	Nesta parte iremos configurar as informações genéricas do módulo, como por exemplo os dados de autenticação do lojista no Market Place, os tempos de latência
+	e até ativar o módulo. Cada uma das configurações são discriminadas abaixo:
+</p>
+<p>
+	<ul>
+		<li><b>- Ativo:</b> configuração utilizada para habilitar ou desabilitar o módulo; </li>
+		<li><b>- Token de Aplicação:</b> identificador da aplicação fornecido pelo Extra.com para o lojista; </li>
+		<li><b>- Token de Autenticação:</b> identificador de autenticação fornecedo pelo Extra.com para o lojista; </li>
+		<li><b>- Latência do serviço de Pedido:</b> tempo entre cada sincronização automática dos pedidos entre Extra.com e Magento;</li>
+		<li><b>- Latência do serviço de Produtos:</b> tempo entre cada sincronização automática dos produtos entre Extra.com e Magento;</li>
+		<li><b>- Latência de serviço de Chamados:</b> tempo entre cada sincronização automática dos chamados entre Extra.com e Magento;</li>
+		<li><b>- Método de envio padrão:</b> métdo de envio associado ao pedido em caso de falha na obtenção do método através do Extra.com; </li>
+		<li><b>- Loja Padrão:</b> loja do Magento a ser utilizada. </li>
+	</ul>
+</p>
+<p><b style="color: red;">ATENÇÃO!</b> O módulo <b>não</b> deve ser ativado até que todas as configurações sejam corretamente realizadas.</p>
+<br />
+<h2>
+	Configurações de Cliente
+</h2>
+<p>Nesta seção o lojista faz o mapeamento dos campos que são essenciais para a idenficação do mesmo no Extra.com. Este mapeamento fará a conversão dos 
+dados vindos do Market Place à sua configuração de campos no Magento, permitindo que os dados sejam alocados nos atributos corretos da sua loja virtual. 
+As configurações são divididas em três áreas:</p>
+<p>
+	<ul>
+		<li><b>- Pessoa Física:</b> são dados relativos ao cadastro de pessoa física (nome, sobrenome, CPF, RG e celular);</li>
+		<li><b>- Empresa:</b> são dados relativos ao cadastro de pessoa jurídica (razão social, inscrição estadual e CNPJ);</li>
+		<li><b>- Endereço: são os campos de endereço do cliente.</b></li>
+	</ul>
+</p>
+<p>
+	O mapeamento acontece da seguinte forma: todos os campos exigidos pelo Extra.com têm uma caixa de seleção à sua direita, na qual são listados 
+	todos os campos de cadastro de cliente e endereço do Magento. O lojista então seleciona cada campo e pode fazer um teste que mostra como ficaria 
+	a associação utilizando um cliente qualquer selecionado dentre os disponíveis.
+</p>
+<br />
+<h2>
+	Configurações de Produto
+</h2>
+<p>
+	Nesta seção o lojista poderá configurar quais atributos serão utilizados para enviar as informações do produto ao Extra.com. Existe uma caixa de
+	seleção que permite que o lojista escolha qual campo deve ser utilizado para enviar as informações de dimensões (altura, largura e comprimento) 
+	e a marca dos produtos.
+</p>
+<p>
+	Caso a sua loja virtual não possua um campo para determinado atributo, poderão ser utilizados valores padrões definidos nesta configuração: na caixa de 
+	seleção escolha a opção "Usar padrão". Assim, será exibida um campo de texto abaixo da caixa de seleção para que seja preenchido o valor padrão a ser 
+	adotado. Mas atenção! É importante configurar sua integração da forma mais precisa possível, uma vez que estas configurações têm importante papel no 
+	cálculo de frete e na exibição de dados do produto no Extra.com, de forma que o valor padrão trata-se de uma saída para casos peculiares.
+</p>
+<p>
+	No caso do campo marca, além de poder escolher um valor padrão, você tem a opção de não enviar este campo. Para tanto, basta selecionar a opção 
+	"Não" na configuração "Possui Marca".
+</p>
+
+

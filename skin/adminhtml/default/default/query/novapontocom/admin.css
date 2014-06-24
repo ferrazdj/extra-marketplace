@@ -1,0 +1,128 @@
+/* *************************** */
+/*            status           */
+/* *************************** */
+
+
+
+
+
+/* *************************** */
+/*           produtos          */
+/* *************************** */
+
+.novapontocom-window-product-associate
+{
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.novapontocom-window-product-associate .store-product 
+{
+	position: relative;
+	display: table;
+	height: 220px;
+	width: 100%;
+	margin: 10px 0 0 0;
+}
+
+.novapontocom-window-product-associate .associated-products
+{
+	height: 340px;
+	overflow: auto;
+	border: 4px solid #6a838b;
+	padding-left: 5px;
+}
+
+.novapontocom-window-product-associate .associated-products .product
+{
+	position: relative;
+	display: table;
+	height: 220px;
+	width: 100%;
+	margin: 10px 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.novapontocom-window-product-associate .store-product .image, .novapontocom-window-product-associate .associated-products .product .image
+{
+	width: 210px;
+	height: 220px;
+	float: left;
+	border: 1px solid #ddd;
+	overflow: hidden;
+	margin-right: 10px; 
+	margin-bottom: 10px;	
+}
+
+.novapontocom-window-product-associate .associated-products .product .image
+{
+	width: 160px;
+	height: 168px;
+	float: left;
+	border: 1px solid #ccc;
+	overflow: hidden;
+	margin-right: 10px; 
+	margin-bottom: 10px;	
+}
+
+.novapontocom-window-product-associate .store-product .image img
+{
+	
+}
+
+.novapontocom-window-product-associate .store-product .attr,.novapontocom-window-product-associate .associated-products .product .attr
+{
+	padding: 5px 0 5px 0;
+}
+
+.novapontocom-window-product-associate .store-product .attr .attr-title,.novapontocom-window-product-associate .associated-products .product .attr .attr-title
+{
+	text-transform: uppercase;
+	margin-right: 10px;
+}
+
+.novapontocom-window-product-associate .store-product .description.attr
+{
+	height: auto;
+	overflow: hidden;
+}
+
+.novapontocom-window-product-associate .store-product button,.novapontocom-window-product-associate .associated-products .product button
+{
+	
+	position: absolute; 
+	right: 10px;
+	top: 5px;
+}
+
+/* *************************** */
+/*         configuracao        */
+/* *************************** */
+
+#novapontocom_customer_config_window_content
+{
+	padding: 15px;
+}
+
+.validation-failed
+{
+	border: 1px dashed #eb340a !important;
+	background: #faebe7 !important;
+}
+
+.novapontocom-error-message
+{
+	color: red;
+	font-weight: bold;
+}
+
+#novapontocom_customer_config_window_content table
+{
+	width: 100%;
+}
+
+#novapontocom_customer_config_window_content table td
+{
+	border: 1px solid #AAAAAA;
+	padding: 2px;
+}

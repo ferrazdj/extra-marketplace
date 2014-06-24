@@ -1,0 +1,75 @@
+<div class="content-header" style="height: 30px;"><h3>Chamados - Manual de Usuário Extra.com</h3></div>
+<h1>
+	Introdução
+</h1>
+<p>
+	Esta seção do módulo permite que o lojista visualize os chamados abertos pelos clientes e se comunique com o mesmo. Há ainda a oportunidade de um 
+	chamado ser aberto pelo próprio lojista.
+</p>
+<p>
+	Os chamados são listados em uma tabela que pode ser acessada pelo menu Extra.com -> Chamados. Na tabela há informações básicas que irão auxiliar 
+	o lojista a identificar e controlar seus chamados.
+</p>
+<br /><hr><br /><br />
+<h1>
+	Visualizando um chamado
+</h1>
+<p>
+	Os chamados são ordenados de forma a mostrar os que receberam atualizações mais recentes, mas a ordenação e a filtragem podem ser utilizadas pelo 
+	lojista pra encontrar o chamado desejado. Uma vez encontrado, para entrar no mesmo, basta clicar na linha que o representa e então será levado à 
+	tela do chamado.
+</p>
+<p>
+	Existem duas abas para o chamado: Informação do Item, que lista os dados básicos do chamado, e Mensagens, que lista a conversação ocorrida no 
+	referido chamado. A tela com informações básicas do chamado permite que o lojista veja a que pedido o chamado pertence, qual o seu tipo (podendo 
+	este ser de cancelamento de algum item ou de contato), a descrição do problema, a razão do contato e ação tomada. Na aba de mensagens são listados 
+	os comentários de ambos, lojista e cliente, compondo a troca de informações em volta do problema ocorrido.
+</p>
+<br /><hr><br /><br />
+<h1>
+	Adicionando comentários
+</h1>
+<p>
+	Caso o lojista queira adiconar um novo comentário a um chamado existente, basta clicar na aba "Mensagens" para que sejam listados os comentários e 
+	em seguida clique no botão "Adicionar" na parte superior da tabela de listagem dos comentários. Isto o levará a uma tela com um editor HTML, o qual 
+	permitirá editar e formatar a mensagem da forma desejada. Ao fim do processo ele deve clicar em "Salvar" para que a mensagem seja adicionada às demais, 
+	de forma que o módulo fará a integração por meio do cron.
+</p>
+<br /><hr><br /><br />
+<h1>
+	Adicionando um novo chamado
+</h1>
+<p>
+	Caso o lojista tenha necessidade de comunicar com o cliente por algum motivo, ele deverá criar um chamado. Para tanto, deverá navegar até o menu 
+	Extra.com -> Chamados e clicar no botão "Adicionar". Assim, será aberta a página de formulário para a criação do chamado, o qual deverá ser preenchido 
+	corretamente, indicando o pedido, o tipo e os dados descritivos (descrição, razão e ação). Em seguida, basta clicar em "Salvar" e o chamado será 
+	adicionado dentre os existentes, além de habilitar a aba "Mensagens", caso o lojista queira adicionar novas informações ou visualizar as respostas do 
+	cliente à suas mensagens.
+</p>
+<br /><hr><br /><br />
+<h1>
+	Fechando um chamado
+</h1>
+<p>
+	Quando um chamado é resolvido e o lojista deseja fechá-lo, deve ir até o menu Extra.com -> Chamados e clicar no registro desejado. Assim, ao abrir a 
+	tela do chamado haverá um botão com os dizeres "Fechar Chamado". Basta clicar no mesmo e confirmar a ação para que seja aberto o formulário de 
+	fechamento do chamado. Nesta tela, há um espaço para o lojista inserir o seu comentário explicando o porquê do fechamento e um checkbox para 
+	determinar se a mensagem será enviada por e-mail ao cliente. Ao fim, basta clicar em "Salvar" e a ação estará concluída.
+</p>
+<br /><hr><br /><br />
+<h1>
+	Confirmando uma troca
+</h1>
+<p>
+	Há casos em que o lojista receberá um chamado aberto pelo cliente, para resolução de problemas em relação aos produtos que foram comprados. Navegando 
+	para a tela do ticket relativo à troca de algum item do pedido (por meio do menu Extra.com -> Chamados e clicando na linha do chamado em questão),
+	será possível informar a realização desta troca clicando no botão "Confirmar Troca".
+</p>
+<p>
+	A troca ou devolução de pedidos do módulo de integração Extra.com segue o padrão do Magento. Sendo assim, você deve criar um reembolso com os itens que 
+	serão trocados ou devolvidos. Repare que o valor do frete devolvido será forçado pelo módulo a ser proporcional ao número de itens do pedido. Após 
+	criado o reembolso, haverá na tela de visualização do mesmo, um botão com os dizeres "Enviar confirmação de troca para o Extra.com". Clicando neste 
+	botão, o lojista será redirecionado para um formulário no qual ele insere o comentário que será anexado à troca, o produto do pedido que está sendo 
+	trocado ou devolvido e a ação a ser realizada (troca, estorno em conta corrente ou estorno no cartão de crédito), além de marcar se o cliente irá 
+	receber esta mensagem via e-mail. Para finalizar a ação, basta clicar em "Salvar".
+</p>

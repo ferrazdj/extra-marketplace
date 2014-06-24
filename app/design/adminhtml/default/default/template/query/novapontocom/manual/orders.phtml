@@ -1,0 +1,74 @@
+<div class="content-header" style="height: 30px;"><h3>Pedidos - Manual de Usuário Extra.com</h3></div>
+<h1>
+	Introdução
+</h1>
+<p>
+	Uma vez que seu produto foi publicado no Market Place e seus dados estão integrados, ele poderá ser comercializados no site do Extra.com. Assim, quando
+	forem realizadas compras, você receberá esta informação na administração da sua loja. Portanto, esta seção do manual trata do fluxo de integração de pedidos, 
+	das ações e das exceções que podem ocorrer neste processo.
+</p>
+<br /><hr><br /><br />
+<h1>
+	Fluxo de Integração
+</h1>
+<p>
+	Os pedidos no Extra.com podem possuir um dos seguintes estados:
+</p>
+<p>
+	<ul>
+		<li><b>- Novo</b></li>
+		<li><b>- Aprovado</b></li>
+		<li><b>- Cancelado</b></li>
+		<li><b>- Enviado</b></li>
+		<li><b>- Parcialmente Enviado</b></li>
+		<li><b>- Entregue</b></li>
+		<li><b>- Parcialmente Entregue</b></li>
+	</ul>
+</p>
+<p>
+	Quando um novo pedido é realizado, ele possui o estado "Novo", o que significa que a compra foi realizada, mas o pagamento ainda não foi acusado (ainda 
+	está sendo processado ou não foi realizado). Dessa forma, o lojista não tem possibilidade de realizar nenhuma ação de andamento do pedido no Market Place. 
+	Este estado do pedido no Market Place corresponderá ao estado "Pendente" no Magento.
+</p>
+<p>
+	Quando o pagamento é acusado, o estado é alterado para "Aprovado", indicando que o lojista já deve enviar o produto para o cliente. Devido ao tempo de 
+	latência do processo de integração, entre uma instância e outra, o pedido pode ser realizado e aprovado, portanto no Magento será criado
+	com o status "Aprovado". Neste momento, o pedido no Magento será alterado para "Processando", pois será criada uma fatura para o mesmo.
+</p>
+<p>
+	O próximo passo é enviar os produtos ao cliente. Este processo também segue o padrão do Magento: deve ser criado um (ou mais) envio(s) para o pedido, de 
+	forma que o módulo será responsável por observar esta ação e informar os produtos e quantidades que foram enviados ao cliente. Assim, o pedido no Market 
+	Place poderá assumir um dos seguintes status: "Enviado", caso todos os produtos do pedido tenham sido enviados, ou "Parcialmente Enviado", caso somente 
+	parte dos produtos tenham sido enviados.
+</p>
+<p>
+	Quando o cliente receber os produtos de um envio (informação geralmente disponível por meio do rastreamento do serviço de frete ou serviço de feedback do cliente), 
+	o lojista deve ir à pagina do envio e clicar no botão "Marcar como entregue (Extra.com)". Assim, o módulo irá enviar esta informação ao Market
+	Place, passando o pedido para "Entregue" (quando todos os envios tiverem passado por este processo) ou "Parcialmente Entregue" (quando ainda restar algum 
+	envio pendente).
+</p>
+<p>
+	O cancelamento do pedido deve seguir o padrão do Magento, de forma que o módulo será responsável por observar a ação de cancelamento e enviar esta informação 
+	ao Market Place. Note que o cancelamento de pedido também pode ser realizado pelo cliente, de forma que o módulo irá disparar esta ação caso o cancelamento 
+	seja oriundo do Market Place do Extra.com.
+</p>
+<br /><hr><br /><br />
+<h1>Interface</h1>
+<p>
+	Há uma área na administração que lista exclusivamente os pedidos advindos do Market Place, mostrando os dados básicos do pedido e o status no Extra.com, 
+	além de permitir a navegação para a página do pedido padrão do Magento. Esta tela pode ser acessada pelo menu Extra.com -> Pedidos -> Listagem.
+</p>
+	Conforme descrito no fluxo acima, a maior parte das ações sobre o pedido seguem o padrão do Magento, sendo a ação de marcar como entregue uma exceção.
+</p>
+<br /><hr><br /><br />
+<h1>
+	Exceções
+</h1>
+<p>
+	Existem exceções que podem ocorrer no processo de integração de pedidos, de forma que o Magento não consiga importar este pedido. Caso isto ocorra, há uma 
+	tabela que lista os pedidos que não entraram por algum problema, de forma que o lojista possui a oportunidade de entrar em contato com o Extra.com e 
+	resolver o problema, a fim de evitar atrasos ou outros percalços no processo de venda. Para acessar esta litagem, basta navegar até o menu Extra.com -> 
+	Pedidos -> Erros.
+</p>
+
+

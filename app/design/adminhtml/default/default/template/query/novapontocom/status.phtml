@@ -1,0 +1,87 @@
+﻿<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><h3><?php echo $this->__('Extra.com Integration') ?></h3></td>
+        </tr>
+    </table>
+</div>
+<div class="vpsa-history-information-container">
+    <table cellspacing="25" width="100%">
+        <tr>
+            <td>
+			    <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Service Status'); ?></h4></div>
+                    <fieldset class="entry-edit"><?php echo $this->__($this->getServiceStatus()); ?></fieldset>
+                </div>
+			</td>
+			<td style="width: 70%;">
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 50%;">
+				<div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Last Product Instance'); ?></h4></div>
+                    <fieldset class="entry-edit"><?php echo $this->getServiceLastProductInstance(); ?></fieldset>
+                </div>
+            </td>
+            <td style="width: 50%;">
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Last Order Instance'); ?></h4></div>
+                    <fieldset class="entry-edit"><?php echo $this->getServiceLastOrderInstance(); ?></fieldset>
+                </div>
+            </td>
+		</tr>
+		<tr>
+			<td colspan="2">
+                <div class="entry-edit" style="border:1px solid #ccc; padding: 15px;">
+                    <div id="service-last-instances"></div>
+                </div>
+                <script type="text/javascript">
+					<?php echo $this->getSeries(); ?>
+
+                    var lastProdInstancesChart = $j.jqplot ('service-last-instances', [costProd, costOrder],
+                    {
+                        title: '<?php echo $this->__('Service Last Instances'); ?>',
+                        series:
+                        [{ 
+                            label: '<?php echo $this->__('Products'); ?>',
+                            lineWidth: 3, 
+                            markerOptions: { style:"filledSquare", size: 6 }
+                        },{
+                            label: '<?php echo $this->__('Orders'); ?>',
+                            lineWidth: 3,
+                            markerOptions: { style:"filledSquare", size: 6 }
+                        }],
+                        axes:
+                        {
+                            xaxis:
+                            {
+                                label: "<?php echo $this->__('Time'); ?>",
+                                renderer: $j.jqplot.CategoryAxisRenderer,
+                                ticks: minutes
+                            },
+                            yaxis:
+                            {
+                                label: "<?php echo $this->__('Quantity'); ?>",
+                                tickOptions:
+                                {
+                                    formatString:'%dx'
+                                }
+                            }
+                        },
+                        highlighter:
+                        {
+                            show: true
+                        },
+                        legend:
+                        {
+                            show:true,
+                            location: 'e'
+                        }
+                    });
+                
+                </script>
+			</td>
+        </tr>
+    </table>
+</div> 

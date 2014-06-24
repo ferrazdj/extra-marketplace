@@ -1,0 +1,93 @@
+<div class="content-header" style="height: 30px;"><h3>Produtos - Manual de Usuário Extra.com</h3></div>
+<h1>
+	Introdução
+</h1>
+<p>
+	O primeiro passo para vender no Extra.com é realizar a submissão dos seus produtos. Você deverá fazer uma triagem, determinando se um produto já existe
+	no Market Place ou se ele é um novo produto. Os detalhes da associação ou envio de novos produtos são detalhados no texto abaixo.
+</p>
+<br /><hr><br /><br />
+<h1>
+	Fluxo de Integração
+</h1>
+<h2>
+	Pesquisa de produtos associados
+</h2>
+<p>
+	Inicialmente, os produtos devem ser enviados para consulta no Market Place do Extra.com, para que seja possível no próximo passo determinar se eles são 
+	novos ou devem ser associados. Para realizar o primeiro envio, vá até a sua página de listagem de produtos padrão do Magento (menu Catálogo -> Produtos) e 
+	selecione todos os produtos que deseja enviar, marcando suas respectivas linhas por meio dos checkboxes na coluna da esquerda. Uma vez selecionados os 
+	produtos, vá até caixa de seleção de ações (no topo da tabela de listagem), selecione a opção "Enviar para a API do Extra.com" e então clique em 
+	"Enviar".
+</p>
+<p>
+	Assim, os produtos serão colocados em uma fila para serem pesquisados e a página será redirecionada para uma listagem de produtos que estão em processo de 
+	integração com o Market Place ou já estejam integrados. Até que os produtos tenham sido processados, eles assumem o status "Procurando por produtos 
+	associados".
+</p>
+<h2>
+	Envio como novo e associação
+</h2>
+<p>
+	Quando a pesquisa de um produto for concluída, ele apresentará o status "Aguardando envio" e ficará disponível a opção de ação, conforme o resultado da 
+	pesquisa:
+</p>
+<p>
+	<ul>
+		<li><b>- Associar:</b> indica que os produtos retornados na pesquisa e o lojista pode tentar realizar a associação do mesmo. Se clicar nesta ação,
+		será aberta uma janela modal, permitindo navegar dentre os produtos sugeridos e escolher um para associação. Caso nenhum produto corresponda ao 
+		produto que está sendo publicado, também há a opção de enviá-lo como novo no topo da janela;</li>
+		<li><b>- Enviar como novo:</b> indica que não houve resultado para a pesquisa e o produto deve ser enviado como novo.</li>
+	</ul>
+</p>
+<p>
+	Caso o produto seja associado a outro, ele já estará disponível para venda e seus valores e estoque serão mantidos integrados com o Market Place por 
+	meio do cron do Magento. Assim, possuirá o status "Carregado" e possuirá disponível a ação "Sincronizar", que poderá ser utilizada para publicar de imediato 
+	o estoque e os preços do produto (sem esperar pelo serviço responsável por tal integração).
+</p>
+<p>
+	Por outro lado, se ele for enviado como novo, deverá passar por um processo de validação. Em um primeiro momento, o status do produto será "Enviado 
+	recentemente", o que indica que o Market Place do Extra.com ainda está processando o envio. Abaixo do status será listado o ID de importação do produto, 
+	o que pode ser útil para esclarecer dúvidas em caso de exceções. Quando o envio for processado e iniciar o processo de validação, o produto assumirá o status 
+	"Em validação", até que este seja aprovado ou recusado. Em caso de recusa, o status "Não Carregado" será apresentado, seguido de uma breve explicação do 
+	problema. Caso haja sucesso na validação, o status "Carregado" será mostrado, assim como no caso do produto que foi associado com sucesso.
+</p>
+<h2>
+	Produtos carregados
+</h2>
+<p>
+	Os produtos carregados no Extra.com estão disponíveis para venda e seus preços e seu estoque serão sincronizados pelos serviços do cron. Abaixo do status 
+	será listado o ID do produto no Market Place, o que pode ser útil para esclarecer dúvidas em caso de exceções.
+</p>
+<br /><hr><br /><br />
+<h1>
+	Interface
+</h1>
+<p>
+	O acompanhamento e integração de produtos é realizado na listagem disponível através do menu Extra.com -> Produtos. Nesta tela há uma tabela com a 
+	listagem dos produtos que estão integrados (ou que estejam em processo de integração com o Market Place), enumerando os seguintes dados: id, nome, sku, preço, 
+	estoque, status no Extra.com e a possível ação em relação à integração. Abaixo dos status são listadas as exceções que possam aparecer no processo de 
+	validação do Market Place, os ID's de envio e de integração dos produtos.
+</p>
+<p>
+	Além disso, é nesta tela que é realizada a associação de produtos, por meio de uma janela modal com a descrição e imagem dos produtos candidatos a 
+	associação.
+</p>
+<br /><hr><br /><br />
+<h1>
+	Possíveis estados
+</h1>
+<p>
+	Os produtos podem assumir os seguintes estados no processo de integração:
+</p>
+<p>
+	<ul>
+		<li><b>- Procurando por produtos associados</b></li>
+		<li><b>- Aguardando para ser enviado como novo</b></li>
+		<li><b>- Enviado recentemente</b></li>
+		<li><b>- Aguardando Envio</b></li>
+		<li><b>- Não carregado</b></li>
+		<li><b>- Carregado</b></li>
+		<li><b>- Em validação</b></li>
+	</ul>
+</p>

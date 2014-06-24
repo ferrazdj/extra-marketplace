@@ -1,0 +1,17 @@
+<?php
+	if($_info = $this->getInfo())
+	{
+		if($_info->getOrder())
+		{
+			$payment = $_info->getOrder()->getPayment();
+			
+			echo "<b>" . $this->__($_info->getMethodInstance()->getTitle()) . "</b><br /><br />";
+			
+			if($_info->getAdditionalInformation('api_type'))
+			{
+				echo $this->__("Type") . ": " . Mage::helper('Query_NovaPontoCom')->getPaymentLabel($_info->getAdditionalInformation('api_type'));
+				echo "<br /><br />";
+			}
+		}
+	}
+?>

@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<!-- status -->
+    <query_novapontocom_index_index>
+        <reference name="head">
+            <action method="addCss"><name>query/novapontocom/admin.css</name></action>
+			<action method="addCss"><name>query/novapontocom/jquery.jqplot.css</name></action>
+            
+            <action method="addItem"><type>js</type><name>jquery/jqplot/excanvas.js</name><params/><if>lt IE 9</if></action>
+            <action method="addJs"><script>jquery/jquery-1.9.0.min.js</script></action>
+            <action method="addJs"><script>jquery/jqplot/jquery.jqplot.min.js</script></action>
+			<action method="addJs"><script>jquery/jqplot/plugins/jqplot.categoryAxisRenderer.min.js</script></action>
+			<action method="addJs"><script>jquery/jqplot/plugins/jqplot.highlighter.min.js</script></action>
+        
+        </reference>
+        <reference name="content">
+            <block type="Query_NovaPontoCom/status" name="Query_NovaPontoCom.status" template="query/novapontocom/status.phtml" />
+        </reference>
+    </query_novapontocom_index_index>
+
+	<!-- products -->
+	<query_novapontocom_products_index module="Query_NovaPontoCom">
+		<reference name="head">
+			<action method="addJs"><script>query/novapontocom/admin.js</script></action>
+			<action method="addItem">
+				<type>js_css</type>
+				<name>prototype/windows/themes/default.css</name>
+			</action>
+			<action method="addCss">
+				<name>query/lib/prototype/windows/themes/magento.css</name>
+			</action>
+			<action method="addCss"><name>query/novapontocom/admin.css</name></action>
+		</reference>
+		<reference name="content">
+			<block type="Query_NovaPontoCom/products" name="products" />
+		</reference>
+	</query_novapontocom_products_index>
+
+	<query_novapontocom_products_getassociatedprods module="Query_NovaPontoCom">
+		<reference name="root">
+			<action method="setTemplate"><template>query/novapontocom/page/ajax.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<block type="Query_NovaPontoCom/products_associate" name="products.associate" template="query/novapontocom/products/associate.phtml" />
+		</reference>
+	</query_novapontocom_products_getassociatedprods>
+
+	<query_novapontocom_products_grid>
+        <update handle="formkey"/>
+        <block type="Query_NovaPontoCom/products_grid" name="sales_product.grid" output="toHtml"></block>
+    </query_novapontocom_products_grid>
+
+	<!-- orders -->
+	<query_novapontocom_orders_index module="Query_NovaPontoCom">
+		<reference name="content">
+			<block type="Query_NovaPontoCom/orders" name="orders" />
+		</reference>
+	</query_novapontocom_orders_index>
+	
+	<query_novapontocom_orders_grid>
+        <update handle="formkey"/>
+        <block type="Query_NovaPontoCom/orders_grid" name="sales_order.grid" output="toHtml"></block>
+    </query_novapontocom_orders_grid>
+	
+	<adminhtml_sales_order_shipment_view>
+		<reference name="head">
+			<action method="addJs"><script>query/novapontocom/admin.js</script></action>
+		</reference>
+	</adminhtml_sales_order_shipment_view>
+
+	<query_novapontocom_importordererror_index>
+        <reference name="content">
+            <block type="Query_NovaPontoCom/importOrderError" name="import.order.error" />
+        </reference>
+    </query_novapontocom_importordererror_index>
+
+	<!-- tickets -->
+	<query_novapontocom_tickets_index>
+        <reference name="content">
+            <block type="Query_NovaPontoCom/tickets" name="tickets" />
+        </reference>
+    </query_novapontocom_tickets_index>
+	
+	<query_novapontocom_tickets_logs_edit>
+        <reference name="head">
+            <action method="setCanLoadExtJs"><flag>1</flag></action>
+            <action method="setCanLoadTinyMce"><flag>1</flag></action>
+            <action method="addJs"><script>mage/adminhtml/variables.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/wysiwyg/widget.js</script></action>
+        </reference>
+    </query_novapontocom_tickets_logs_edit>
+
+    <!-- manual -->
+	<query_novapontocom_manual_index>
+        <reference name="left">
+            <block type="Query_NovaPontoCom/manual_tabs" name="manual.tabs" />
+        </reference>
+    </query_novapontocom_manual_index>
+
+    <!-- config -->
+	<adminhtml_system_config_edit>
+		<reference name="head">
+			<action method="addJs"><script>query/novapontocom/admin.js</script></action>
+			<action method="addItem">
+				<type>js_css</type>
+				<name>prototype/windows/themes/default.css</name>
+			</action>
+			<action method="addCss">
+				<name>query/lib/prototype/windows/themes/magento.css</name>
+			</action>
+			<action method="addCss"><name>query/novapontocom/admin.css</name></action>
+		</reference>
+	</adminhtml_system_config_edit>
+</layout>

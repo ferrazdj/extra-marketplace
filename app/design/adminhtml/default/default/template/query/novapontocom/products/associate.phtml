@@ -1,0 +1,93 @@
+<div class="novapontocom-window-product-associate">
+	<div class="store-product">
+		<div class="image">
+<?php
+		$imageUrl = $this->getProductImageUrl($this->getProduct());
+
+		if($imageUrl)
+		{
+			echo "<img src=\"" . $imageUrl . "\" />";
+		}
+		else echo "<img src=\"../images/no-image.png\" />";
+?>
+		</div>
+        
+		<div class="name attr">
+        	<span class="attr-title" style="font-weight: bold;"><?php echo $this->__('Name'); ?>:</span>
+            <span class="attr-text"><?php echo $this->getProduct()->getName(); ?></span>
+        </div>
+        
+		<div class="sku attr">
+        	<span class="attr-title" style="font-weight: bold;"><?php echo $this->__('SKU'); ?>:</span>
+			<span class="attr-text"><?php echo $this->getProduct()->getSku(); ?></span>
+        </div>
+        
+		<div class="price attr">
+        	<span class="attr-title" style="font-weight: bold;"><?php echo $this->__('Price'); ?>:</span>
+			<span class="attr-text"><?php echo $this->getProduct()->getPrice(); ?></span>
+        </div>
+        
+		<div class="description attr">
+        	<span class="attr-title" style="font-weight: bold;"><?php echo $this->__('Description'); ?>:</span>
+			<span class="attr-text"><?php echo $this->getProduct()->getDescription(); ?></span>
+        </div>
+<?php
+		$sendAsNewUrl = Mage::helper("adminhtml")->getUrl("Query_NovaPontoCom/products/sendProductAsNew/", array("product" => $this->getProduct()->getId()));
+?>
+        <button onclick="confirmNovaPontoComAction('<?php echo $this->__('Do You really want to do this action?'); ?>', '<?php echo $sendAsNewUrl; ?>');">
+            <span><span><?php echo $this->__('Send product'); ?></span></span>
+        </button>
+	
+    </div>
+<!--  Comentando código para não permitir associação por enquanto 
+	<div class="associated-products">
+<?php
+
+		$associatedProducts = $this->getAssociatedProductsData($this->getProduct());
+
+		foreach($associatedProducts as $prod)
+		{
+?>
+		<div class="product">
+        	<div class="image">
+<?php
+
+			if(isset($prod['media']) && isset($prod['media']['images']) && count($prod['media']['images']) > 0)
+			{
+				echo "<img src=\"" . $prod['media']['images'][0]['url'] . "\" />";
+			}
+?>
+			</div>
+			<div class="name attr">
+            	<span class="attr-title" style="font-weight: bold;"><?php echo $this->__('Name'); ?>:</span>
+                <span class="attr-text"><?php echo $prod['sellingTitle']; ?></span>
+            </div>
+			<div class="sku attr">
+            	<span class="attr-title" style="font-weight: bold;"><?php echo $this->__('API SKU'); ?>:</span>
+				<span class="attr-text"><?php echo $prod['skuId']; ?></span>
+            </div>
+			<div class="price attr">
+            	<span class="attr-title" style="font-weight: bold;"><?php echo $this->__('Price'); ?>:</span
+				<span class="attr-text"><?php echo $prod['defaultPrice']; ?></span>
+            </div>
+			<div class="description attr">
+            	<span class="attr-title" style="font-weight: bold;"><?php echo $this->__('Description'); ?>:</span>
+				<span class="attr-text"><?php echo $prod['description']; ?></span>
+            </div>
+<?php
+			$associateUrl = Mage::helper("adminhtml")->getUrl("Query_NovaPontoCom/products/associateProduct/", array
+							(
+								"product" => $this->getProduct()->getId(),
+								"skuId" => $prod['skuId']
+							));
+?>
+	        <button onclick="confirmNovaPontoComAction('<?php echo $this->__('Do You really want to do this action?'); ?>', '<?php echo $associateUrl; ?>');">
+	            <span><span><?php echo $this->__('Associate'); ?></span></span>
+	        </button>
+		</div>
+<?php
+		}
+?>
+	</div>
+	-->
+</div>
