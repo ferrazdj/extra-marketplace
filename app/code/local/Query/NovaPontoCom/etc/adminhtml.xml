@@ -1,0 +1,109 @@
+﻿<?xml version="1.0"?>
+
+<config>
+	<menu>
+        <novapontocom translate="title" module="Query_NovaPontoCom">
+            <title>Extra.com</title>
+            <sort_order>90</sort_order>
+            <children>
+				<status>
+					<title>Status</title>
+					<action>novapontocom/index/index</action>
+				</status>
+                <products>
+                    <title>Products</title>
+                    <action>novapontocom/products/index</action>
+                </products>
+				<orders>
+                    <title>Orders</title>
+                    <children>
+                        <list>
+                            <title>List</title>
+                            <action>novapontocom/orders/index</action>
+                        </list>
+                        <errors>
+                            <title>Errors</title>
+                            <action>novapontocom/importOrderError/index</action>
+                        </errors>
+                    </children>
+                </orders>
+				<tickets>
+                    <title>Tickets</title>
+                    <action>novapontocom/tickets/index</action>
+                </tickets>
+                <manual>
+                    <title>User Guide</title>
+                    <action>novapontocom/manual/index</action>
+                </manual>
+            </children>
+        </novapontocom>
+    </menu>
+	<!-- esquema de permissoes -->
+    <acl>
+        <resources>
+			<all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <novapontocom>
+                        <title>Extra.com</title>
+                        <sort_order>900</sort_order>
+                        <children>
+                            <status translate="title" module="Query_NovaPontoCom">
+                                <title>General</title>
+                                <sort_order>10</sort_order>
+                            </status>
+                            <products translate="title" module="Query_NovaPontoCom">
+                                <title>Products</title>
+                                <sort_order>20</sort_order>
+                            </products>
+                            <orders translate="title" module="Query_NovaPontoCom">
+                                <title>Orders</title>
+                                <sort_order>30</sort_order>
+                                <children>
+                                    <list>
+                                        <title>List</title>
+                                        <sort_order>10</sort_order>
+                                    </list>
+                                    <errors>
+                                        <title>List</title>
+                                        <sort_order>10</sort_order>
+                                    </errors>
+                                </children>
+                            </orders>
+                            <tickets translate="title" module="Query_NovaPontoCom">
+                                <title>Tickets</title>
+                                <sort_order>40</sort_order>
+                            </tickets>
+                            <manual translate="title" module="Query_NovaPontoCom">
+                                <title>User Guide</title>
+                                <sort_order>50</sort_order>
+                            </manual>
+                        </children>
+                    </novapontocom>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <novapontocom translate="title" module="Query_NovaPontoCom">
+                                        <title>Extra.com - General</title>
+                                        <sort_order>901</sort_order>
+                                    </novapontocom>
+                                    <novapontocom_customer translate="title" module="Query_NovaPontoCom">
+                                        <title>Extra.com - Customer Configuration</title>
+                                        <sort_order>902</sort_order>
+                                    </novapontocom_customer>
+                                    <novapontocom_product translate="title" module="Query_NovaPontoCom">
+                                        <title>Extra.com - Product Configuration</title>
+                                        <sort_order>903</sort_order>
+                                    </novapontocom_product>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

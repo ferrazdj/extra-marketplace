@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Query_NovaPontoCom>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Query_NovaPontoCom>
+    </modules>
+</config>

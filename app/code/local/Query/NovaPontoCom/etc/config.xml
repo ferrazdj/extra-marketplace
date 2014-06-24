@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+
+<config>
+    
+    <modules>
+        <Query_NovaPontoCom>
+            <version>1.0.2</version>
+        </Query_NovaPontoCom>
+    </modules>
+    
+	<crontab>
+        <jobs>
+            <novapontocom_sync>
+                <schedule><cron_expr>*/5 * * * *</cron_expr></schedule>
+                <run><model>Query_NovaPontoCom/main::run</model></run>
+            </novapontocom_sync>
+        </jobs>
+    </crontab>
+	
+	<adminhtml>
+        <translate>
+            <modules>
+                <Query_NovaPontoCom>
+                    <files>
+                        <default>Query_NovaPontoCom.csv</default>
+                    </files>
+                </Query_NovaPontoCom>
+            </modules>
+        </translate>
+		<events>
+			<!-- observer para criar as acoes de massa do modulo -->
+			<core_block_abstract_prepare_layout_before>
+				<observers>
+					<novapontocom_sync_massaction>
+						<type>model</type>
+						<class>Query_NovaPontoCom/observer_sync</class>
+						<method>addSyncMassAction</method>
+					</novapontocom_sync_massaction>
+				</observers>
+			</core_block_abstract_prepare_layout_before>
+			<!-- observer para enviar items que foram 'ship' no pedido -->
+            <sales_order_shipment_save_after>
+                <observers>
+                    <novapontocom_shipment_updateitemstracking>
+                        <type>model</type>
+                        <class>Query_NovaPontoCom/observer_shipment</class>
+                        <method>updateItemsTracking</method>
+                    </novapontocom_shipment_updateitemstracking>
+                </observers>
+            </sales_order_shipment_save_after>
+            <!-- observer para cancelar um pedido no novapontocom quando cancelado via magento -->
+            <order_cancel_after>
+                <observers>
+                    <novapontocom_order_cancel>
+                        <type>model</type>
+                        <class>Query_NovaPontoCom/observer_order</class>
+                        <method>cancel</method>
+                    </novapontocom_order_cancel>
+                </observers>
+            </order_cancel_after>
+			<!-- observer para filtrar o valor de reembolso do frete na criacao de reembolsos -->
+            <adminhtml_sales_order_creditmemo_register_before>
+                <observers>
+                    <sales_order_creditmemo_save_before>
+                        <type>model</type>
+                        <class>Query_NovaPontoCom/observer_creditmemo</class>
+                        <method>beforeCreate</method>
+                    </sales_order_creditmemo_save_before>
+                </observers>
+            </adminhtml_sales_order_creditmemo_register_before>
+		</events>
+        <layout>
+            <updates>
+                <Query_NovaPontoCom>
+                    <file>query_novapontocom.xml</file>
+                </Query_NovaPontoCom>
+            </updates>
+        </layout>
+    </adminhtml>
+	
+	<admin>
+        <routers>
+            <Query_NovaPontoCom>
+                <use>admin</use>
+                <args>
+                    <module>Query_NovaPontoCom</module>
+                    <frontName>novapontocom</frontName>
+                </args>
+            </Query_NovaPontoCom>
+        </routers>
+    </admin>
+	
+	<frontend>
+		<routers>
+			<Query_NovaPontoCom>
+				<use>standard</use>
+				<args>
+					<module>Query_NovaPontoCom</module>
+					<frontName>novapontocom</frontName>
+				</args>
+			</Query_NovaPontoCom>
+		</routers>
+	</frontend>
+	
+    <global>
+        <helpers>
+            <Query_NovaPontoCom>
+                <class>Query_NovaPontoCom_Helper</class>
+            </Query_NovaPontoCom>
+        </helpers>
+        
+        <models>
+            <Query_NovaPontoCom>
+                <class>Query_NovaPontoCom_Model</class>
+                <resourceModel>query_novapontocom_mysql4</resourceModel>
+            </Query_NovaPontoCom>
+            
+            <query_novapontocom_mysql4>
+                <class>Query_NovaPontoCom_Model_Mysql4</class>
+                <entities>
+                    <ticket>
+                        <table>query_novapontocom_ticket</table>
+                    </ticket>
+					<ticket_log>
+                        <table>query_novapontocom_ticket_log</table>
+                    </ticket_log>
+                    <importOrderError>
+                        <table>query_novapontocom_import_order_error</table>
+                    </importOrderError>
+                </entities>
+            </query_novapontocom_mysql4>
+        </models>
+		
+		<blocks>
+            <Query_NovaPontoCom>
+				<class>Query_NovaPontoCom_Block</class>
+            </Query_NovaPontoCom>
+        </blocks>
+
+        <resources>
+            <Query_NovaPontoCom_setup>
+                <setup>
+                    <module>Query_NovaPontoCom</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </Query_NovaPontoCom_setup>
+            <Query_NovaPontoCom_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </Query_NovaPontoCom_write>
+            <Query_NovaPontoCom_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </Query_NovaPontoCom_read>
+        </resources>
+		
+		<events>
+			<!-- observer para atualizar estoque de produtos comprados -->
+            <sales_order_place_after>
+                <observers>
+                    <novapontocom_order_update_inventory>
+                        <type>model</type>
+                        <class>Query_NovaPontoCom/observer_order</class>
+                        <method>updateBoughtProductsInventory</method>
+                    </novapontocom_order_update_inventory>
+                </observers>
+            </sales_order_place_after>
+		</events>
+		
+    </global>
+	
+	<default>
+		<payment>
+			<Query_NovaPontoCom>
+				<active>0</active>
+				<model>Query_NovaPontoCom/payment</model>
+				<order_status>pending</order_status>
+				<title>Payed on Extra.com</title>
+			</Query_NovaPontoCom>
+		</payment>
+	</default>
+
+</config>

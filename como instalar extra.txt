@@ -1,0 +1,15 @@
+Instruções de instalação 
+ 
+1 - Descompacte os arquivos em seu computador;
+ 
+2 - Suba os diretórios app, skin e js por FTP, na raíz de instalação do seu Magento (por exemplo: public_html/loja). Você irá não irár sobrescrever nada, fique tranquilo;
+ 
+3 - Na administração do seu Magento, acesse o menu Sistema > Configuração. Abra a opção EXTRA > Geral > Deixe Ativo> Preencha o Token de Aplicação e Token Autentificação.
+
+4 - Em Configuração dos clientes, valide os campos correspondetes de cadastro, como nome, sobrenome, endereço, telefone e etc;
+
+5-  Realiza o mesmo procedimento em Configurações de Produto > valide os dados para ter certeza se ficou correto.
+
+6-  Configure o cron de seu servidor para enviar os dados de 5 em 5 minutos, ou instale e configure o cron via AOE Schedule, link: http://www.magentocommerce.com/magento-connect/aoe-scheduler.html 
+
+7 - Acesse o menu Sistema > Gerenciador de Cache e limpe o cache de configuração (selecione "Atualizar" em Todo cache e deixe o item "Configuração" marcado). Salve as configurações e verifique se o módulo já está disponível no seu site. 

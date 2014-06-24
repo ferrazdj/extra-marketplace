@@ -1,0 +1,471 @@
+﻿<?xml version="1.0"?>
+
+<config>
+	<tabs>
+        <novapontocom translate="label" module="Query_NovaPontoCom">
+            <label>Extra.com</label>
+            <sort_order>400</sort_order>
+        </novapontocom>
+    </tabs>
+    <sections>
+        <novapontocom translate="label" module="Query_NovaPontoCom">
+            <class>separator-top</class>
+			<label>General</label>
+            <tab>novapontocom</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <!--
+                        <license_key translate="label">
+                            <label>License Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </license_key>
+                        -->
+						<active translate="label">
+                            <label>Active</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <app_token translate="label">
+                            <label>Application Token</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </app_token>
+						<auth_token translate="label">
+                            <label>Authentication Token</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </auth_token>
+                        <product_service_delay translate="label">
+                            <label>Product Service Delay</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_minutesDelay</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_service_delay>
+						<order_service_delay translate="label">
+                            <label>Order Service Delay</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_minutesDelay</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </order_service_delay>
+						<ticket_service_delay translate="label">
+                            <label>Ticket Service Delay</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_hoursDelay</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ticket_service_delay>
+                        <order_shipment_method translate="label">
+                            <label>Default Shipment Method</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_shippingMethods</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </order_shipment_method>
+						<default_store_id translate="label">
+                            <label>Default Store</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_stores</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_store_id>
+                    </fields>
+                </settings>
+                <!--
+				<inventory_filter translate="label">
+                    <label>Inventory Filter</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+						<min_qty translate="label">
+                            <label>Minimum Quantity</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_qty>
+					</fields>
+				</inventory_filter>
+                -->
+            </groups>
+        </novapontocom>
+		<novapontocom_customer translate="label" module="Query_NovaPontoCom">
+            <label>Customer Configuration</label>
+            <tab>novapontocom</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>20</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <individual translate="label">
+                    <label>Individual</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>10</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <name translate="label">
+                            <label>Name</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAttributes</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name>
+						<last_name translate="label">
+                            <label>Last Name</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAttributes</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </last_name>
+						<cpf translate="label">
+                            <label>CPF</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAttributes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cpf>
+						<rg translate="label">
+                            <label>RG</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAttributes</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rg>
+						<cel_phone translate="label">
+                            <label>Cel Phone</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAttributes</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cel_phone>
+                        <verify translate="label">
+                            <label>Verify</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>Query_NovaPontoCom/Adminhtml_Button</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </verify>
+                    </fields>
+                </individual>
+                <company translate="label">
+                    <label>Company</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <company_name translate="label">
+                            <label>Company Name</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAttributes</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </company_name>
+						<ie translate="label">
+                            <label>IE</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAttributes</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ie>
+						<cnpj translate="label">
+                            <label>CNPJ</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAttributes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cnpj>
+                        <verify translate="label">
+                            <label>Verify</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>Query_NovaPontoCom/Adminhtml_Button</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </verify>
+                    </fields>
+                </company>
+				<address translate="label">
+                    <label>Address</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <street translate="label">
+                            <label>Street</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAddressAttributes</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </street>
+						<number translate="label">
+                            <label>Number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAddressAttributes</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </number>
+						<complement translate="label">
+                            <label>Complement</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAddressAttributes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </complement>
+						<district translate="label">
+                            <label>District</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_customerAddressAttributes</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </district>
+                        <verify translate="label">
+                            <label>Verify</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>Query_NovaPontoCom/Adminhtml_Button</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </verify>
+                    </fields>
+                </address>
+            </groups>
+        </novapontocom_customer>
+        <novapontocom_product translate="label" module="Query_NovaPontoCom">
+            <label>Product Configuration</label>
+            <tab>novapontocom</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>30</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <field_config translate="label">
+                    <label>Attribute Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>10</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <width translate="label">
+                            <label>Width</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_productAttributes</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </width>
+                        <default_width translate="label">
+                            <label>Default Width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><width></width></depends>
+                        </default_width>
+                        <height translate="label">
+                            <label>Height</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_productAttributes</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </height>
+                        <default_height translate="label">
+                            <label>Default Height</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><height></height></depends>
+                        </default_height>
+                        <length translate="label">
+                            <label>Length</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_productAttributes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </length>
+                        <default_length translate="label">
+                            <label>Default Length</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><length></length></depends>
+                        </default_length>
+                        <has_brand translate="label">
+                            <label>Has Brand</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>38</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </has_brand>
+                        <brand translate="label">
+                            <label>Brand</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/adminhtml_productAttributes</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><has_brand>1</has_brand></depends>
+                        </brand>
+                        <default_brand translate="label">
+                            <label>Default Brand</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><has_brand>0</has_brand></depends>
+                        </default_brand>
+                        <brand_type translate="label">
+                            <label>Brand Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Query_NovaPontoCom/config_source_brand</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><has_brand>1</has_brand></depends>
+                        </brand_type>
+                        <log_product translate="label">
+                            <label>Enabled Log to send product</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </log_product>
+                    </fields>
+                </field_config>
+            </groups>
+        </novapontocom_product>
+		<payment translate="label" module="payment">
+			<groups>
+		      	<Query_NovaPontoCom translate="label">
+					<label>Extra.com</label>
+					<sort_order>675</sort_order>
+					<show_in_default>1</show_in_default>
+				  	<show_in_website>1</show_in_website>
+				  	<show_in_store>1</show_in_store>
+					<fields>
+                      	<active translate="label">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+					  		<show_in_store>1</show_in_store>
+					    </active>
+						<title translate="label">
+					  		<label>Title</label>
+					  		<frontend_type>text</frontend_type>
+					  		<sort_order>30</sort_order>
+					  		<show_in_default>1</show_in_default>
+					  		<show_in_website>1</show_in_website>
+					  		<show_in_store>1</show_in_store>
+				      	</title>
+			  	     </fields>
+                </Query_NovaPontoCom>
+            </groups>
+		</payment>
+    </sections>
+</config>
